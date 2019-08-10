@@ -18,7 +18,7 @@
             var formQuestion = document.querySelector('p');
             formQuestion.innerText = question;
             
-            //как сказать ему ждать ввода??
+            //как сказать ему ждать ввода?? 
          
 
             const money = 0;
