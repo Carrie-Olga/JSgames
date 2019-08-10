@@ -19,8 +19,7 @@
             formQuestion.innerText = question;
             
             //как сказать ему ждать ввода??
-            var answer = document.querySelector('input').value;
-            console.log(document.querySelector('input').value);
+         
 
             const money = 0;
             if (answer == "olga") {
