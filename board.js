@@ -86,7 +86,7 @@ board.forEach((rowEl, rowIndex) => {
 
     rowEl.forEach((el, cellIndex) => {
         const cell = createCell();
-        debugger;
+        //debugger;
         var state = gameState[rowIndex][cellIndex];
         const type = state ? state.type : '';
         const color = state ? state.colors : '';
@@ -94,6 +94,7 @@ board.forEach((rowEl, rowIndex) => {
             cell.classList.add(type);
             cell.classList.add(color);
         }
+        
         row.append(cell);
     })
     row.append(lastCell);

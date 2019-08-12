@@ -44,3 +44,13 @@ body {
     height: 100%;
 }
 
+.cell .white {
+    color: #ccc;
+}
+.cell .black {
+    color: #000;
+}
+.cell .rook {
+    background-image: url();
+}
+
