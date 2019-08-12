@@ -23,42 +23,42 @@ const board = [
     [['A', 1], ['B', 1], ['C', 1], ['D', 1],  ['E', 1], ['F', 1], ['G', 1], ['H', 1]],
 ];
 const gameState = [
-    { type: figures.rook, colors: colors.black },
-    { type: figures.knight, colors: colors.black },
-    { type: figures.bishop, colors: colors.black },
-    { type: figures.king, colors: colors.black },
-    { type: figures.queen, colors: colors.black },
-    { type: figures.bishop, colors: colors.black },
-    { type: figures.knight, colors: colors.black },
-    { type: figures.rook, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    { type: figures.pawn, colors: colors.black },
-    null, null, null, null, null, null, null, null, 
-    null, null, null, null, null, null, null, null, 
-    null, null, null, null, null, null, null, null, 
-    null, null, null, null, null, null, null, null, 
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.pawn, colors: colors.white },
-    { type: figures.rook, colors: colors.white },
-    { type: figures.knight, colors: colors.white },
-    { type: figures.bishop, colors: colors.white },
-    { type: figures.queen, colors: colors.white },
-    { type: figures.king, colors: colors.white },
-    { type: figures.bishop, colors: colors.white },
-    { type: figures.knight, colors: colors.white },
-    { type: figures.rook, colors: colors.white },
+    [{ type: figures.rook, colors: colors.black },
+        { type: figures.knight, colors: colors.black },
+        { type: figures.bishop, colors: colors.black },
+        { type: figures.king, colors: colors.black },
+        { type: figures.queen, colors: colors.black },
+        { type: figures.bishop, colors: colors.black },
+        { type: figures.knight, colors: colors.black },
+        { type: figures.rook, colors: colors.black }],
+        [{ type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black },
+        { type: figures.pawn, colors: colors.black }],
+    [null, null, null, null, null, null, null, null], 
+    [null, null, null, null, null, null, null, null], 
+    [null, null, null, null, null, null, null, null], 
+    [null, null, null, null, null, null, null, null], 
+   [ { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white },
+        { type: figures.pawn, colors: colors.white }],
+       [ { type: figures.rook, colors: colors.white },
+        { type: figures.knight, colors: colors.white },
+        { type: figures.bishop, colors: colors.white },
+        { type: figures.queen, colors: colors.white },
+        { type: figures.king, colors: colors.white },
+        { type: figures.bishop, colors: colors.white },
+        { type: figures.knight, colors: colors.white },
+        { type: figures.rook, colors: colors.white }],
 ];
 
 function createRow() {
@@ -78,13 +78,22 @@ const firstRow = createRow();
 const lastRow = createRow();
 container.append(firstRow);
 
-board.forEach((rowEl) => {
+board.forEach((rowEl, rowIndex) => {
     const row = createRow();
     const firstCell = createCell();
     row.append(firstCell);
     const lastCell = createCell();
-    rowEl.forEach((el) => {
+
+    rowEl.forEach((el, cellIndex) => {
         const cell = createCell();
+        debugger;
+        var state = gameState[rowIndex][cellIndex];
+        const type = state ? state.type : '';
+        const color = state ? state.colors : '';
+        if (gameState[rowIndex][cellIndex] != null) {
+            cell.classList.add(type);
+            cell.classList.add(color);
+        }
         row.append(cell);
     })
     row.append(lastCell);
