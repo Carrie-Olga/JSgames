@@ -1,10 +1,16 @@
 const figures = {
     rook: 'rook',
+    rookL: 'R',
     knight: 'knight',
+    knightL: 'Kn',
     bishop: 'bishop',
+    bishopL: 'B',
     king: 'king',
+    kingL: 'K',
     queen: 'queen',
-    pawn: 'pawn'
+    queenL: 'Q',
+    pawn: 'pawn',
+    pawnL: 'P'
 }
 
 const colors = {
@@ -23,42 +29,42 @@ const board = [
     [['A', 1], ['B', 1], ['C', 1], ['D', 1],  ['E', 1], ['F', 1], ['G', 1], ['H', 1]],
 ];
 const gameState = [
-    [{ type: figures.rook, colors: colors.black },
-        { type: figures.knight, colors: colors.black },
-        { type: figures.bishop, colors: colors.black },
-        { type: figures.king, colors: colors.black },
-        { type: figures.queen, colors: colors.black },
-        { type: figures.bishop, colors: colors.black },
-        { type: figures.knight, colors: colors.black },
-        { type: figures.rook, colors: colors.black }],
-        [{ type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black },
-        { type: figures.pawn, colors: colors.black }],
+    [{ type: figures.rook, colors: colors.black, letter:  figures.rookL},
+        { type: figures.knight, colors: colors.black, letter:  figures.knightL },
+        { type: figures.bishop, colors: colors.black, letter:   figures.bishopL},
+        { type: figures.king, colors: colors.black, letter:   figures.kingL},
+        { type: figures.queen, colors: colors.black, letter: figures.queenL  },
+        { type: figures.bishop, colors: colors.black, letter:  figures.bishopL },
+        { type: figures.knight, colors: colors.black, letter:  figures.knightL },
+        { type: figures.rook, colors: colors.black, letter: figures.rookL  }],
+        [{ type: figures.pawn, colors: colors.black, letter:  figures.pawnL },
+        { type: figures.pawn, colors: colors.black, letter:  figures.pawnL },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  },
+        { type: figures.pawn, colors: colors.black, letter: figures.pawnL  }],
     [null, null, null, null, null, null, null, null], 
     [null, null, null, null, null, null, null, null], 
     [null, null, null, null, null, null, null, null], 
     [null, null, null, null, null, null, null, null], 
-   [ { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white },
-        { type: figures.pawn, colors: colors.white }],
-       [ { type: figures.rook, colors: colors.white },
-        { type: figures.knight, colors: colors.white },
-        { type: figures.bishop, colors: colors.white },
-        { type: figures.queen, colors: colors.white },
-        { type: figures.king, colors: colors.white },
-        { type: figures.bishop, colors: colors.white },
-        { type: figures.knight, colors: colors.white },
-        { type: figures.rook, colors: colors.white }],
+   [ { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL },
+        { type: figures.pawn, colors: colors.white, letter: figures.pawnL }],
+       [ { type: figures.rook, colors: colors.white, letter:  figures.rookL },
+        { type: figures.knight, colors: colors.white, letter:  figures.knightL  },
+        { type: figures.bishop, colors: colors.white, letter:   figures.bishopL },
+        { type: figures.queen, colors: colors.white, letter: figures.queenL  },
+        { type: figures.king, colors: colors.white, letter:   figures.kingL },
+        { type: figures.bishop, colors: colors.white, letter:   figures.bishopL },
+        { type: figures.knight, colors: colors.white, letter:  figures.knightL  },
+        { type: figures.rook, colors: colors.white, letter:  figures.rookL }],
 ];
 
 function createRow() {
@@ -90,9 +96,11 @@ board.forEach((rowEl, rowIndex) => {
         var state = gameState[rowIndex][cellIndex];
         const type = state ? state.type : '';
         const color = state ? state.colors : '';
+        const letter = state ? state.letter : ''
         if (gameState[rowIndex][cellIndex] != null) {
             cell.classList.add(type);
             cell.classList.add(color);
+            cell.innerText = letter;
         }
         
         row.append(cell);

@@ -42,12 +42,14 @@ body {
 .cell {
     width: calc(100% / 10);
     height: 100%;
+    text-align: center;
+    line-height: 50px;
 }
 
-.cell .white {
+.white {
     color: #ccc;
 }
-.cell .black {
+.black {
     color: #000;
 }
 .cell .rook {
