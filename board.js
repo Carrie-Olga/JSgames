@@ -75,7 +75,9 @@ function createCell() {
 const container = document.querySelector('#board');
 
 const firstRow = createRow();
+const lastRow = createRow();
 container.append(firstRow);
+
 board.forEach((rowEl) => {
     const row = createRow();
     const firstCell = createCell();
@@ -87,5 +89,6 @@ board.forEach((rowEl) => {
     })
     row.append(lastCell);
     container.append(row);
-})
+});
+
 container.append(lastRow);

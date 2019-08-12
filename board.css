@@ -17,19 +17,27 @@ body {
     width: 100%;
     display: flex;
 }
+.row:first-child {
+    background-color: #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.row:last-child {
+    background-color: #ccc;
+    border-bottom: 1px solid #ccc;
+}
 
 .row:nth-child(even) .cell:nth-child(even) {
-    background-color: #ccc;
+    background-color: #b7b7b7;
 }
 .row:nth-child(odd) .cell:nth-child(odd) {
-    background-color: #ccc;
+    background-color: #b7b7b7;
 }
 
 .row .cell:first-child {
-    background-color: #fff !important;
+    background-color: #ccc !important;
 }
 .row .cell:last-child {
-    background-color: #fff !important;
+    background-color: #ccc !important;
 }
 .cell {
     width: calc(100% / 10);
